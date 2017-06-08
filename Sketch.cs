@@ -31,7 +31,7 @@ public class Sketch : MonoBehaviour {
         foreach (RevenueTest2 revenue in revenuetest)
         {
             //Example of how to use the object
-            Debug.Log("This categories name is: " + revenue.ProductID);
+            Debug.Log("This categories name is: " + revenue.Category);
             float perc = i / (float)totalCubes;
             i++;
             float x = perc * totalDistance;
@@ -40,9 +40,9 @@ public class Sketch : MonoBehaviour {
             GameObject newCube = (GameObject)Instantiate(myPrefab, new Vector3(x, y, z), Quaternion.identity);
             newCube.GetComponent<myCubeScript>().setSize((1.0f - perc) * 2);
             newCube.GetComponent<myCubeScript>().ratateSpeed = perc;
-            newCube.GetComponentInChildren<TextMesh>().text = revenue.ProductID;
+            newCube.GetComponentInChildren<TextMesh>().text = revenue.Category;
             newCube.GetComponent<Renderer>().material.color = Color.green;
-            
+            newCube.GetComponent<myCubeScript>().setColor(Color.red);
 
         }
     }
